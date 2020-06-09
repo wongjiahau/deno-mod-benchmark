@@ -4,7 +4,7 @@ const encoder = new TextEncoder()
 
 const run = async (filename: string) => {
   const content = decoder.decode(await Deno.readFile(filename))
-  const iteration = 10
+  const iteration = 10e5
   const durations = []
 
   for (let i = 0; i < iteration; i++) {
