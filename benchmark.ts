@@ -3,12 +3,12 @@ const decoder = new TextDecoder()
 const encoder = new TextEncoder()
 
 const run = async (filename: string) => {
-  const content = decoder.decode(await Deno.readFile(filename))
-  const iteration = 10e5
+  const iteration = 100
   const durations = []
 
   for (let i = 0; i < iteration; i++) {
     const now = Date.now()
+    const content = decoder.decode(await Deno.readFile(filename))
     await Deno.run({
       cmd: ["deno", "run", filename],
       stdout: "piped",
